@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/xBeastMode/Emojis
+build-by-default: true
+branches:
+- main
+projects:
+  Emojis:
+    path: ""
+    icon: "icon.png"
+...
