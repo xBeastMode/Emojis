@@ -1,5 +1,7 @@
 # Emojis v1.0.0
-![Screenshot](icon.png)
+<div style="text-align: center;">
+<img src="https://github.com/xBeastMode/Emojis/raw/main/icon.png" alt="">
+</div>
 
 by xBeastMode
 # Feature
@@ -12,6 +14,39 @@ by xBeastMode
 - [x] Duration and max stack limiter
 - [ ] Use emojis via modal forms
 - [ ] Use emojis via commands
+
+# Usage
+
+Simply send your desired emoji's name in chat, you may use multiple emojis
+in one message, you can also set the duration of the emoji in seconds by separating it with dot "."
+for example including "cool.10" in your chat message will activate the "cool" emoji for 10 seconds.
+The time separation character is configurable as well as the default and max duration time.
+The default emoji list includes:
+- blush
+- cool
+- cry
+- heart
+- heart_eyes
+- joy
+- kiss
+- pensive
+- pepe
+- pepegang
+- pog
+- sad
+- smile
+- smile_hearts
+- smirk
+- sweat
+- tongue
+- tongue_wink
+- unamused
+- wink
+- worried
+
+# Screenshot
+
+<img src="https://github.com/xBeastMode/Emojis/raw/main/screenshot.png" alt="">
 
 # Commands
 

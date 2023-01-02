@@ -39,7 +39,7 @@ class TextureUtils{
                                 $r = ($argb >> 16) & 0xff;
                                 $g = ($argb >> 8) & 0xff;
                                 $b = $argb & 0xff;
-                                $texture_bytes .= chr($r) . chr($g) . chr($b) . chr($a);
+                                $texture_bytes .= TextureUtils . phpchr($r) . chr($b) . chr($a);
                         }
                 }
 
