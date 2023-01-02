@@ -1,0 +1,105 @@
+---
+# ====================================================
+# default list of emojis
+# ====================================================
+# blush, cool, cry, heart, heart_eyes, joy, kiss, pensive
+# pepe, pepegang, pog, sad, smile, smile_hearts, smirk, sweat,
+# tongue, tongue_wink, unamused, wink, worried
+# ====================================================
+
+# ====================================================
+# This is an array containing the names of the emojis
+# ====================================================
+# you want to disable. The format should go as such:
+# disabled-emojis: [blush, cool, etc...]
+# ====================================================
+disabled-emojis: []
+
+# ====================================================
+# This is an array containing the names of the worlds
+# you want to disable.
+# ====================================================
+# To disable all emojis in a specific
+# world the format should go as such:
+# disabled-worlds:
+#   world: "*"
+# ====================================================
+# To disable specific emojis in a specific
+# world the format should go as such:
+# disabled-worlds:
+#   world: [blush, cool, etc...]
+# ====================================================
+disabled-worlds: []
+
+# ====================================================
+# This is an array containing the names of additional
+# 3rd party emojis you may want to add outside of
+# default emojis
+# ====================================================
+# To add new emojis simply drop your new emoji's texture
+# in the "plugin_data/Emojis/textures" folder and add
+# the name inside the array
+# =====================================================
+# NOTE: textures must be in 64x64 PNG 32-bit color format
+# if the emoji uses the default geometry
+# =====================================================
+additional-emojis: []
+
+# ====================================================
+# Set this to "true" if you want to require player's to have
+# permission to use emojis, otherwise set this to "false"
+# ====================================================
+requires-permission: true
+
+# ====================================================
+# This is how the permission node for each emoji will be registered
+# ====================================================
+permission-format: "emoji.{emoji}"
+
+# ====================================================
+# This is the character that separates the emoji name
+# and duration time in the emoji chat format.
+# ====================================================
+# For example if the separator is "." and I chat "cool.5"
+# then the emoji will be "cool" and have a 5 second duration.
+# ====================================================
+# This can also have multiple characters or have other
+# characters than a dot for example "::" and that would be
+# used as such: "cool::5"
+# ====================================================
+time-separator: "."
+
+# ====================================================
+# This is the default duration of an emoji
+# if not provided by the player
+# ====================================================
+default-duration: 5
+
+# ====================================================
+# Set this to "true" if you want to enable an active emoji
+# limit and set that limit in the "max-emojis" value
+# ====================================================
+limit-emojis: true
+
+# ====================================================
+# This is the limit of emojis a player can have active at once
+# ====================================================
+max-emojis: 3
+
+# ====================================================
+# Set this to "true" if you want to enable an emoji duration
+# limit and set that duration in the "max-duration" value
+# ====================================================
+limit-duration: true
+
+# ====================================================
+# This is the maximum duration of an emoji in seconds
+# ====================================================
+max-duration: 10
+
+# ====================================================
+# Set this to "true" if you want to cancel messages
+# when players use emojis via chat
+# ====================================================
+cancel-chat: false
+...

@@ -1,0 +1,11 @@
+name: Emojis
+main: xBeastMode\Emojis\Loader
+version: 1.0.0
+api: [4.0.0]
+load: STARTUP
+author: xBeastMode
+description: Adds emojis to pocketmine
+
+permissions:
+  command.spawnemojimodel:
+    default: op
