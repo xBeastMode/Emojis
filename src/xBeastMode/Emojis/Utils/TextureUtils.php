@@ -9,7 +9,7 @@ class TextureUtils{
          * @return null|string
          */
         public static function getTexture(string $name): ?string{
-                return static::textureFromPNGFile(Loader::getInstance()->getDataFolder() . "/Textures/$name.png");
+                return static::textureFromPNGFile(Loader::getInstance()->getDataFolder() . "Textures/$name.png");
         }
 
         /**
@@ -18,7 +18,7 @@ class TextureUtils{
          * @return bool|string
          */
         public static function getGeometryData(string $name = "emote.json"): bool|string{
-                return file_get_contents(Loader::getInstance()->getDataFolder() . "/Textures/$name");
+                return file_get_contents(Loader::getInstance()->getDataFolder() . "Textures/$name");
         }
 
         /**
@@ -39,7 +39,7 @@ class TextureUtils{
                                 $r = ($argb >> 16) & 0xff;
                                 $g = ($argb >> 8) & 0xff;
                                 $b = $argb & 0xff;
-                                $texture_bytes .= TextureUtils . phpchr($r) . chr($b) . chr($a);
+                                $texture_bytes .= chr($r) . chr($g) . chr($b) . chr($a);
                         }
                 }
 
