@@ -6,13 +6,16 @@ use pocketmine\command\CommandSender;
 use pocketmine\entity\InvalidSkinException;
 use pocketmine\entity\Skin;
 use pocketmine\player\Player;
+use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginOwned;
 use xBeastMode\Emojis\Entity\EmojiModelEntity;
 use xBeastMode\Emojis\EventListener;
+use xBeastMode\Emojis\Loader;
 use xBeastMode\Emojis\Utils\TextureUtils;
-class SpawnEmojiModelCommand extends Command{
-        public function __construct(){
+class SpawnEmojiModelCommand extends Command implements PluginOwned{
+        public function __construct(public Loader $plugin){
                 parent::__construct("spawnemojimodel", "Spawns emoji model", "Usage: /spawnemojimodel <name> [text...]", ["sem"]);
-                $this->setPermission("command.spawnemojimodel");
+                $this->setPermission("emojis.command.spawnemojimodel");
         }
 
         /**
@@ -44,6 +47,14 @@ class SpawnEmojiModelCommand extends Command{
                 }
 
                 $name = array_shift($args);
+                $emoji_list = $this->plugin->getEmojiManager()->getAllEmojiNames();
+
+                if(!in_array($name, $emoji_list)){
+                        $sender->sendMessage("§eNo emoji with such name.");
+                        $sender->sendMessage("§eKnown emoji list: §f" . implode(", ", $emoji_list));
+                        return true;
+                }
+
                 $text = empty($args) ? $name : implode(" ", $args);
 
                 $texture = TextureUtils::getTexture($name);
@@ -61,5 +72,9 @@ class SpawnEmojiModelCommand extends Command{
                 }
 
                 return true;
+        }
+
+        public function getOwningPlugin(): Plugin{
+                return $this->plugin;
         }
 }

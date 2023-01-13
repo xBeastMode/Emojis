@@ -7,5 +7,7 @@ author: xBeastMode
 description: Adds emojis to pocketmine
 
 permissions:
-  command.spawnemojimodel:
+  emojis.command.spawnemojimodel:
+    default: op
+  emojis.emoji.all:
     default: op

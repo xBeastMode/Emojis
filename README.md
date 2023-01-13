@@ -10,7 +10,6 @@ by xBeastMode
 - [x] Create custom emojis
 - [x] Disable emojis per world
 - [x] Option to enable use permission
-- [x] Change permission node
 - [x] Duration and max stack limiter
 - [ ] Use emojis via modal forms
 - [ ] Use emojis via commands
@@ -21,6 +20,14 @@ Simply send your desired emoji's name in chat, you may use multiple emojis
 in one message, you can also set the duration of the emoji in seconds by separating it with dot "."
 for example including "cool.10" in your chat message will activate the "cool" emoji for 10 seconds.
 The time separation character is configurable as well as the default and max duration time.
+
+**NOTE**: Use permissions are required by default, but can be disabled in config, 
+by setting `requires-permission` to `false`.<br>
+**Permission node**: 
+`emojis.emoji.[name]`, e.g. `emojis.emoji.joy` for a single emoji 
+**OR** `emojis.emoji.all` for all emojis.
+
+
 The default emoji list includes:
 - blush
 - cool
@@ -57,6 +64,10 @@ The default emoji list includes:
 the `/spawnemojimodel` command as the name suggests spawns a emoji model
 with the desired name. To remove the model once spawned simply use `/spawnemojimodel remove`
 and tap the model to remove it.
+
+**NOTE**: if emoji uses custom geometry, the emoji will not render as expected
+because the command uses the default emoji geometry 
+for which I suggest you write your own model spawn code if you wish to spawn custom emoji models.
 
 # Configuration
 ```yaml
@@ -113,11 +124,6 @@ additional-emojis: []
 # permission to use emojis, otherwise set this to "false"
 # ====================================================
 requires-permission: true
-
-# ====================================================
-# This is how the permission node for each emoji will be registered
-# ====================================================
-permission-format: "emoji.{emoji}"
 
 # ====================================================
 # This is the character that separates the emoji name

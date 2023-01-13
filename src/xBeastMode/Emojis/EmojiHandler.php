@@ -63,7 +63,11 @@ class EmojiHandler{
                                 $duration = (int) $duration;
 
                                 $duration = $limit_duration ? min($duration, $max_duration) : $duration;
-                                if(!$player->hasPermission("emoji.$name")) continue;
+
+                                $permission = str_replace("{emoji}", $name, EmojiManager::DEFAULT_PERMISSION_NODE);
+                                $requires_permission = $config->get("requires-permission", true);
+
+                                if($requires_permission && !$player->hasPermission($permission) && !$player->hasPermission("emojis.emoji.all")) continue;
 
                                 $world_name = $player->getWorld()->getDisplayName();
                                 $disabled_worlds = $config->get("disabled-worlds", []);

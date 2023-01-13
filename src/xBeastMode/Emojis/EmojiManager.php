@@ -5,6 +5,8 @@ use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\Permission;
 use pocketmine\player\Player;
 class EmojiManager{
+        const DEFAULT_PERMISSION_NODE = "emojis.emoji.{emoji}";
+
         /** @var string[] */
         protected array $emoji_factory = [];
         /** @var Emoji[][][]|Player[][][] */
@@ -84,9 +86,7 @@ class EmojiManager{
                 $this->emoji_factory[$name] = $emoji_class;
 
                 if($this->loader->getConfig()->get("requires-permission", true)){
-                        $permission = $this->loader->getConfig()->get("permission-format", "emoji.{emoji}");
-                        $permission = str_replace("{emoji}", $name, $permission);
-
+                        $permission = str_replace("{emoji}", $name, self::DEFAULT_PERMISSION_NODE);
                         DefaultPermissions::registerPermission(new Permission($permission, ""), [Loader::getOperatorPermission()]);
                 }
                 return !$is_emoji_registered;

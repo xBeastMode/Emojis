@@ -52,11 +52,6 @@ additional-emojis: []
 requires-permission: true
 
 # ====================================================
-# This is how the permission node for each emoji will be registered
-# ====================================================
-permission-format: "emoji.{emoji}"
-
-# ====================================================
 # This is the character that separates the emoji name
 # and duration time in the emoji chat format.
 # ====================================================

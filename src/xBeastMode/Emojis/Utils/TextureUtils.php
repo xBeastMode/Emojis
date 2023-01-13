@@ -27,14 +27,14 @@ class TextureUtils{
          * @return null|string
          */
         public static function textureFromPNGFile(string $path): ?string{
-                $img = @imagecreatefrompng($path);
-                $height = (int) @getimagesize($path)[1];
+                $image = @imagecreatefrompng($path);
+                [$width, $height] = @getimagesize($path);
 
                 $texture_bytes = "";
 
                 for ($y = 0; $y < $height; $y++) {
-                        for ($x = 0; $x < 64; $x++) {
-                                $argb = @imagecolorat($img, $x, $y);
+                        for ($x = 0; $x < $width; $x++) {
+                                $argb = @imagecolorat($image, $x, $y);
                                 $a = ((~($argb >> 24)) << 1) & 0xff;
                                 $r = ($argb >> 16) & 0xff;
                                 $g = ($argb >> 8) & 0xff;
@@ -43,7 +43,7 @@ class TextureUtils{
                         }
                 }
 
-                @imagedestroy($img);
+                @imagedestroy($image);
                 return $texture_bytes;
         }
 }

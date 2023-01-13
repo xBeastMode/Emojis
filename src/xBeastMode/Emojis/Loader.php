@@ -20,6 +20,7 @@ class Loader extends PluginBase{
 
         /** @var EmojiManager|null */
         protected ?EmojiManager $emoji_manager = null;
+
         /** @var EmojiHandler|null */
         protected ?EmojiHandler $emoji_handler = null;
 
@@ -34,7 +35,7 @@ class Loader extends PluginBase{
                 $this->getScheduler()->scheduleRepeatingTask(new UpdateEmojiTask($this), 0);
                 $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 
-                $this->getServer()->getCommandMap()->register("emojis", new SpawnEmojiModelCommand());
+                $this->getServer()->getCommandMap()->register("emojis", new SpawnEmojiModelCommand($this));
 
                 EntityFactory::getInstance()->register(EmojiModelEntity::class, function(World $world, CompoundTag $nbt) : EmojiModelEntity{
                         return new EmojiModelEntity(Helper::parseLocation($nbt, $world), Human::parseSkinNBT($nbt), $nbt);
@@ -57,10 +58,30 @@ class Loader extends PluginBase{
         }
 
         /**
+         * @param EmojiManager|null $emoji_manager
+         *
+         * @return Loader
+         */
+        public function setEmojiManager(?EmojiManager $emoji_manager): self{
+                $this->emoji_manager = $emoji_manager;
+                return $this;
+        }
+
+        /**
          * @return EmojiHandler|null
          */
         public function getEmojiHandler(): ?EmojiHandler{
                 return $this->emoji_handler;
+        }
+
+        /**
+         * @param EmojiHandler|null $emoji_handler
+         *
+         * @return Loader
+         */
+        public function setEmojiHandler(?EmojiHandler $emoji_handler): self{
+                $this->emoji_handler = $emoji_handler;
+                return $this;
         }
 
         /**
